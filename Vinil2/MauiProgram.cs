@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Plugin.Fingerprint;
 using Plugin.Fingerprint.Abstractions;
 using Vinil2.Servicios;
 

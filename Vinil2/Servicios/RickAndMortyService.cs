@@ -8,7 +8,7 @@ using System.Text.Json.Nodes;
 using Vinil2.Servicios;
 using Vinil2.Model;
 
-namespace Vinil.Servicios
+namespace Vinil2.Servicios
 {
     public class RickAndMortyService : IRickAndMortyService
     {
