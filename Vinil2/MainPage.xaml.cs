@@ -7,15 +7,15 @@ namespace Vinil2
     {
 
         private readonly IFingerprint fingerprint;
-        int count = 0;
+
         public MainPage()
         {
             InitializeComponent();
             this.fingerprint = CrossFingerprint.Current;
         }
-        private async void OnCounterClicked(object sender, EventArgs e)
+        private async void OnFingerClicked(object sender, EventArgs e)
         {
-            count++;
+
             var hasBiometric = await fingerprint.GetAvailabilityAsync();
             var bioType = await fingerprint.GetAuthenticationTypeAsync();
 
@@ -36,12 +36,9 @@ namespace Vinil2
             {
                 await DisplayAlert("No Access", "Acceso denied", "OK");
             }
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
+           
 
-            SemanticScreenReader.Announce(CounterBtn.Text);
+
         }
     }
 }

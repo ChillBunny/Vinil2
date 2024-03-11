@@ -4,12 +4,29 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Vinil2"
-    Shell.FlyoutBehavior="Disabled"
-    Title="Vinil2">
+    xmlns:views="clr-namespace:Vinil2.Views"
+    xmlns:model="clr-namespace:Vinil2.Models"
+    Title="Vinil2"
+    Shell.TabBarIsVisible="False">
 
     <ShellContent
         Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        ContentTemplate="{DataTemplate local:LoginPage}"
+        FlyoutItemIsVisible="False"
+        Shell.FlyoutBehavior="Disabled"
+        Route="LgoinPage" />
+
+    <FlyoutItem Route="HomePage" FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent Title="Home" Icon="{x:Static model:Icons.Dashboard}" ContentTemplate="{DataTemplate views:HomePage}"/>
+        <ShellContent Title="Contact" Icon="{x:Static model:Icons.ContactUs}" ContentTemplate="{DataTemplate views:ContactPage}"/>
+        <ShellContent Title="About" Icon="{x:Static model:Icons.AboutUs}" ContentTemplate="{DataTemplate views:AboutPage}"/>
+    </FlyoutItem>
+
+    <Shell.FlyoutFooter>
+        <StackLayout Padding="20">
+            <Button Text="Sign Out" Command="{Binding SignOutCommand}" BackgroundColor="AliceBlue"/>
+        </StackLayout>
+    </Shell.FlyoutFooter>
 
 </Shell>
+ 
