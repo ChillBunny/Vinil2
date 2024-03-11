@@ -24,9 +24,8 @@ namespace Vinil2
 
 #if DEBUG
             builder.Logging.AddDebug();
-            builder.Services.AddSingleton(typeof(IFingerprint), CrossFingerprint.Current);
 #endif
-
+            builder.Services.AddSingleton(typeof(IFingerprint), CrossFingerprint.Current);
             return builder.Build();
         }
     }
